@@ -6,6 +6,7 @@
 <title>J.A.R.V.I.S. AI</title>
 
 <style>
+
 :root {
     --cyan: #00eaff;
     --blue: #008cff;
@@ -22,17 +23,23 @@
 body {
     height: 100vh;
     overflow: hidden;
+
     background:
-        radial-gradient(circle at center,
-        #063c50 0%,
-        #03131d 30%,
-        #01070b 65%,
-        #000 100%);
+        radial-gradient(
+            circle at center,
+            #063c50 0%,
+            #03131d 30%,
+            #01070b 65%,
+            #000 100%
+        );
+
     color: var(--cyan);
     font-family: "Courier New", monospace;
 }
 
-/* BACKGROUND */
+/* =========================
+   BACKGROUND
+========================= */
 
 .grid {
     position: fixed;
@@ -40,30 +47,45 @@ body {
     z-index: -5;
 
     background-image:
-        linear-gradient(rgba(0,234,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,234,255,.06) 1px, transparent 1px);
+        linear-gradient(
+            rgba(0,234,255,.06) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0,234,255,.06) 1px,
+            transparent 1px
+        );
 
     background-size: 45px 45px;
+
     animation: gridMove 10s linear infinite;
 }
 
 @keyframes gridMove {
-    from { background-position: 0 0; }
-    to { background-position: 0 45px; }
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 45px;
+    }
 }
 
 .scanlines {
     position: fixed;
     inset: 0;
+
     pointer-events: none;
 
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(255,255,255,.015),
-        rgba(255,255,255,.015) 1px,
-        transparent 1px,
-        transparent 4px
-    );
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.015),
+            rgba(255,255,255,.015) 1px,
+            transparent 1px,
+            transparent 4px
+        );
 
     z-index: 20;
 }
@@ -71,25 +93,34 @@ body {
 .vignette {
     position: fixed;
     inset: 0;
+
     pointer-events: none;
-    box-shadow: inset 0 0 180px #000;
+
+    box-shadow:
+        inset 0 0 180px #000;
+
     z-index: 19;
 }
 
 
-/* BOOT */
+/* =========================
+   BOOT
+========================= */
 
 .boot {
     position: fixed;
     inset: 0;
+
     background: #000;
 
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
     z-index: 100;
+
     transition: 1s;
 }
 
@@ -100,6 +131,7 @@ body {
 
 .boot h1 {
     font-size: clamp(40px, 8vw, 90px);
+
     letter-spacing: 15px;
 
     text-shadow:
@@ -110,41 +142,56 @@ body {
 
 .boot p {
     margin-top: 20px;
+
     font-size: 12px;
+
     letter-spacing: 5px;
 }
 
 .loading {
     width: 350px;
     max-width: 80%;
+
     height: 3px;
+
     margin-top: 30px;
+
     background: #082631;
 }
 
 .loading span {
     display: block;
+
     width: 0;
     height: 100%;
 
     background: var(--cyan);
-    box-shadow: 0 0 15px var(--cyan);
+
+    box-shadow:
+        0 0 15px var(--cyan);
 
     animation: loading 3s forwards;
 }
 
 @keyframes loading {
-    to { width: 100%; }
+    to {
+        width: 100%;
+    }
 }
 
 
-/* HUD */
+/* =========================
+   HUD
+========================= */
 
 .hud {
     position: relative;
+
     width: 100%;
     height: 100%;
+
     opacity: 0;
+
     transition: 1s;
 }
 
@@ -153,16 +200,20 @@ body {
 }
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .header {
     position: absolute;
+
     top: 22px;
     left: 30px;
 }
 
 .logo {
     font-size: 28px;
+
     letter-spacing: 7px;
 
     text-shadow:
@@ -172,42 +223,58 @@ body {
 
 .subtitle {
     margin-top: 5px;
+
     font-size: 10px;
+
     letter-spacing: 3px;
+
     color: #58d9e5;
 }
 
 
-/* CONNECTION */
+/* =========================
+   CONNECTION
+========================= */
 
 .connection {
     position: absolute;
+
     top: 22px;
     right: 30px;
 
     text-align: right;
+
     font-size: 11px;
+
     line-height: 1.8;
 }
 
 .online {
     color: var(--green);
-    text-shadow: 0 0 10px var(--green);
+
+    text-shadow:
+        0 0 10px var(--green);
 }
 
 
-/* CENTER */
+/* =========================
+   CENTER
+========================= */
 
 .center {
     position: absolute;
+
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 }
 
 
-/* RADAR */
+/* =========================
+   RADAR
+========================= */
 
 .radar {
     position: absolute;
@@ -218,9 +285,12 @@ body {
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
-    border: 1px solid rgba(0,234,255,.3);
+    border:
+        1px solid rgba(0,234,255,.3);
+
     border-radius: 50%;
 }
 
@@ -244,17 +314,21 @@ body {
             transparent 70%
         );
 
-    animation: radarScan 3s linear infinite;
+    animation:
+        radarScan 3s linear infinite;
 }
 
 @keyframes radarScan {
     to {
-        transform: rotate(360deg);
+        transform:
+            rotate(360deg);
     }
 }
 
 
-/* REACTOR */
+/* =========================
+   REACTOR
+========================= */
 
 .reactor {
     position: relative;
@@ -263,9 +337,12 @@ body {
     height: 320px;
 
     border-radius: 50%;
-    border: 2px solid var(--cyan);
+
+    border:
+        2px solid var(--cyan);
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -274,20 +351,28 @@ body {
         0 0 60px var(--blue),
         inset 0 0 50px rgba(0,234,255,.35);
 
-    animation: reactorIdle 2.5s infinite;
+    animation:
+        reactorIdle 2.5s infinite;
+
     transition: .3s;
 }
 
 @keyframes reactorIdle {
+
     50% {
-        transform: scale(1.025);
+        transform:
+            scale(1.025);
     }
+
 }
 
 
-/* OUTER ROTATING RING */
+/* =========================
+   ROTATING RINGS
+========================= */
 
 .reactor::before {
+
     content: "";
 
     position: absolute;
@@ -297,15 +382,15 @@ body {
 
     border-radius: 50%;
 
-    border: 2px dashed var(--cyan);
+    border:
+        2px dashed var(--cyan);
 
-    animation: rotate 10s linear infinite;
+    animation:
+        rotate 10s linear infinite;
 }
 
-
-/* INNER ROTATING RING */
-
 .reactor::after {
+
     content: "";
 
     position: absolute;
@@ -315,18 +400,21 @@ body {
 
     border-radius: 50%;
 
-    border: 3px solid var(--blue);
+    border:
+        3px solid var(--blue);
 
-    border-top-color: transparent;
-    border-bottom-color: transparent;
+    border-top-color:
+        transparent;
 
-    animation: rotateReverse 5s linear infinite;
+    border-bottom-color:
+        transparent;
+
+    animation:
+        rotateReverse 5s linear infinite;
 }
 
-
-/* EXTRA RING */
-
 .ring {
+
     position: absolute;
 
     width: 185px;
@@ -334,17 +422,26 @@ body {
 
     border-radius: 50%;
 
-    border: 1px solid white;
-    border-left-color: transparent;
-    border-right-color: transparent;
+    border:
+        1px solid white;
 
-    animation: rotate 3s linear infinite;
+    border-left-color:
+        transparent;
+
+    border-right-color:
+        transparent;
+
+    animation:
+        rotate 3s linear infinite;
 }
 
 
-/* SPEAKING WAVE */
+/* =========================
+   SPEAKING WAVE
+========================= */
 
 .speakingWave {
+
     position: absolute;
 
     width: 125px;
@@ -352,35 +449,19 @@ body {
 
     border-radius: 50%;
 
-    border: 3px solid rgba(0,234,255,.4);
+    border:
+        3px solid rgba(0,234,255,.4);
 
     opacity: 0;
 }
 
-.bar {
-    position: absolute;
 
-    width: 4px;
-    height: 25px;
-
-    left: 50%;
-    top: 50%;
-
-    transform-origin: 50% 62px;
-
-    background: white;
-
-    box-shadow:
-        0 0 8px var(--cyan),
-        0 0 15px var(--cyan);
-
-    border-radius: 5px;
-}
-
-
-/* CORE */
+/* =========================
+   CORE
+========================= */
 
 .core {
+
     width: 78px;
     height: 78px;
 
@@ -401,66 +482,86 @@ body {
         0 0 50px var(--cyan),
         0 0 100px var(--cyan);
 
-    animation: coreIdle 1.5s infinite;
+    animation:
+        coreIdle 1.5s infinite;
 }
 
 @keyframes coreIdle {
+
     50% {
-        transform: scale(1.1);
+        transform:
+            scale(1.1);
     }
+
 }
 
 @keyframes rotate {
+
     to {
-        transform: rotate(360deg);
+        transform:
+            rotate(360deg);
     }
+
 }
 
 @keyframes rotateReverse {
+
     to {
-        transform: rotate(-360deg);
+        transform:
+            rotate(-360deg);
     }
+
 }
 
 
 /* =========================
-   SPEAKING MODE
+   SPEAKING
 ========================= */
 
 body.speaking .reactor {
+
     animation:
         reactorSpeaking .45s infinite alternate;
 }
 
 body.speaking .reactor::before {
+
     animation:
         rotate 2s linear infinite;
 }
 
 body.speaking .reactor::after {
+
     animation:
         rotateReverse 1.5s linear infinite;
 }
 
 body.speaking .ring {
+
     animation:
         rotate .8s linear infinite;
 }
 
 body.speaking .core {
+
     animation:
         coreSpeaking .35s infinite alternate;
 }
 
 body.speaking .speakingWave {
+
     opacity: 1;
+
     animation:
         wavePulse .7s infinite alternate;
 }
 
 @keyframes reactorSpeaking {
+
     from {
+
         transform: scale(1);
+
         box-shadow:
             0 0 25px var(--cyan),
             0 0 60px var(--blue),
@@ -468,126 +569,171 @@ body.speaking .speakingWave {
     }
 
     to {
+
         transform: scale(1.08);
+
         box-shadow:
             0 0 45px var(--cyan),
             0 0 110px var(--blue),
             inset 0 0 80px rgba(0,234,255,.65);
     }
+
 }
 
 @keyframes coreSpeaking {
+
     from {
+
         transform: scale(1);
-        filter: brightness(1);
+
+        filter:
+            brightness(1);
     }
 
     to {
+
         transform: scale(1.35);
-        filter: brightness(1.8);
+
+        filter:
+            brightness(1.8);
     }
+
 }
 
 @keyframes wavePulse {
+
     from {
+
         transform: scale(.85);
+
         opacity: .3;
     }
 
     to {
+
         transform: scale(1.3);
+
         opacity: .9;
     }
+
 }
 
 
-/* PANELS */
+/* =========================
+   PANELS
+========================= */
 
 .panel {
+
     position: absolute;
 
     width: 255px;
 
-    background: rgba(0,15,25,.55);
+    background:
+        rgba(0,15,25,.55);
 
-    border: 1px solid rgba(0,234,255,.5);
+    border:
+        1px solid rgba(0,234,255,.5);
 
     box-shadow:
         0 0 20px rgba(0,234,255,.12);
 
-    backdrop-filter: blur(5px);
+    backdrop-filter:
+        blur(5px);
 }
 
 .panel-title {
+
     padding: 9px;
 
     font-size: 10px;
+
     letter-spacing: 2px;
 
-    background: rgba(0,234,255,.08);
+    background:
+        rgba(0,234,255,.08);
 
-    border-bottom: 1px solid rgba(0,234,255,.3);
+    border-bottom:
+        1px solid rgba(0,234,255,.3);
 }
 
 .panel-content {
+
     padding: 12px;
 
     font-size: 10px;
+
     line-height: 2;
 }
 
 .left1 {
+
     left: 25px;
     top: 145px;
 }
 
 .left2 {
+
     left: 25px;
-    bottom: 110px;
+    bottom: 70px;
 }
 
 .right1 {
+
     right: 25px;
     top: 145px;
 }
 
 .right2 {
+
     right: 25px;
     bottom: 110px;
 }
 
 
-/* BARS */
+/* =========================
+   STATUS BARS
+========================= */
 
 .statusBar {
+
     width: 100%;
     height: 5px;
 
-    margin: 3px 0 7px;
+    margin:
+        3px 0 7px;
 
-    background: #08232c;
+    background:
+        #08232c;
 }
 
 .statusBar span {
+
     display: block;
 
     height: 100%;
 
-    background: var(--cyan);
+    background:
+        var(--cyan);
 
-    box-shadow: 0 0 8px var(--cyan);
+    box-shadow:
+        0 0 8px var(--cyan);
 }
 
 
-/* VOICE */
+/* =========================
+   VOICE
+========================= */
 
 .voice {
+
     position: absolute;
 
     bottom: 25px;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 420px;
 
@@ -595,16 +741,19 @@ body.speaking .speakingWave {
 }
 
 .voiceText {
+
     min-height: 45px;
 
     font-size: 12px;
 
     color: #b7fbff;
 
-    text-shadow: 0 0 10px var(--cyan);
+    text-shadow:
+        0 0 10px var(--cyan);
 }
 
 .mic {
+
     width: 65px;
     height: 65px;
 
@@ -612,9 +761,11 @@ body.speaking .speakingWave {
 
     border-radius: 50%;
 
-    border: 1px solid var(--cyan);
+    border:
+        1px solid var(--cyan);
 
-    background: rgba(0,234,255,.05);
+    background:
+        rgba(0,234,255,.05);
 
     color: var(--cyan);
 
@@ -629,17 +780,24 @@ body.speaking .speakingWave {
 }
 
 .mic:hover {
-    background: var(--cyan);
-    color: #001018;
+
+    background:
+        var(--cyan);
+
+    color:
+        #001018;
 
     box-shadow:
         0 0 40px var(--cyan);
 }
 
 
-/* COMMAND */
+/* =========================
+   COMMAND
+========================= */
 
 .commandBox {
+
     position: absolute;
 
     right: 30px;
@@ -649,29 +807,39 @@ body.speaking .speakingWave {
 }
 
 .commandBox input {
+
     width: 100%;
 
     padding: 12px;
 
-    background: rgba(0,10,17,.8);
+    background:
+        rgba(0,10,17,.8);
 
-    color: var(--cyan);
+    color:
+        var(--cyan);
 
-    border: 1px solid var(--cyan);
+    border:
+        1px solid var(--cyan);
 
     outline: none;
 
-    font-family: inherit;
+    font-family:
+        inherit;
 }
 
 .commandBox input::placeholder {
-    color: #34727b;
+
+    color:
+        #34727b;
 }
 
 
-/* CLOCK */
+/* =========================
+   CLOCK
+========================= */
 
 .clock {
+
     position: absolute;
 
     left: 30px;
@@ -683,10 +851,14 @@ body.speaking .speakingWave {
 }
 
 
-/* LISTENING */
+/* =========================
+   LISTENING
+========================= */
 
 body.listening .reactor {
-    border-color: var(--red);
+
+    border-color:
+        var(--red);
 
     box-shadow:
         0 0 30px var(--red),
@@ -695,6 +867,7 @@ body.listening .reactor {
 }
 
 body.listening .core {
+
     background:
         radial-gradient(
             circle,
@@ -706,7 +879,9 @@ body.listening .core {
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px) {
 
@@ -715,24 +890,32 @@ body.listening .core {
     }
 
     .reactor {
+
         width: 270px;
         height: 270px;
     }
 
     .radar {
+
         width: 340px;
         height: 340px;
     }
 
     .voice {
+
         width: 80%;
     }
 
     .commandBox {
+
         left: 50%;
         right: auto;
-        transform: translateX(-50%);
+
+        transform:
+            translateX(-50%);
+
         bottom: 100px;
+
         width: 250px;
     }
 
@@ -740,8 +923,10 @@ body.listening .core {
         display: none;
     }
 }
+
 </style>
 </head>
+
 
 <body>
 
@@ -750,13 +935,17 @@ body.listening .core {
 <div class="vignette"></div>
 
 
-<!-- BOOT -->
+<!-- =========================
+     BOOT
+========================= -->
 
 <div class="boot" id="boot">
 
     <h1>J.A.R.V.I.S.</h1>
 
-    <p>INITIALIZING ARTIFICIAL INTELLIGENCE...</p>
+    <p>
+        INITIALIZING ARTIFICIAL INTELLIGENCE...
+    </p>
 
     <div class="loading">
         <span></span>
@@ -765,9 +954,14 @@ body.listening .core {
 </div>
 
 
-<!-- HUD -->
+<!-- =========================
+     HUD
+========================= -->
 
 <div class="hud" id="hud">
+
+
+    <!-- HEADER -->
 
     <div class="header">
 
@@ -782,25 +976,35 @@ body.listening .core {
     </div>
 
 
+    <!-- CONNECTION -->
+
     <div class="connection">
 
         SYSTEM:
-        <span class="online">ONLINE</span>
+        <span class="online">
+            ONLINE
+        </span>
 
         <br>
 
         AI CORE:
-        <span class="online">ACTIVE</span>
+        <span class="online">
+            ACTIVE
+        </span>
 
         <br>
 
         NETWORK:
-        <span id="network">CHECKING</span>
+        <span id="network">
+            CHECKING
+        </span>
 
     </div>
 
 
-    <!-- LEFT PANEL -->
+    <!-- =========================
+         LEFT PANEL
+    ========================= -->
 
     <div class="panel left1">
 
@@ -839,28 +1043,64 @@ body.listening .core {
     </div>
 
 
-    <!-- LEFT LOWER -->
+    <!-- =========================
+         LEFT LOWER
+    ========================= -->
 
     <div class="panel left2">
 
         <div class="panel-title">
-            ACTIVE MODULES
+            CAR DATABASE
         </div>
 
         <div class="panel-content">
 
-            ● VOICE INTERFACE<br>
-            ● SPEECH SYNTHESIS<br>
-            ● WEB ACCESS<br>
-            ● AI PROCESSING<br>
-            ● HOLOGRAPHIC HUD
+            HYPERCAR
+            <br>
+            <span class="online">
+                BUGATTI / KOENIGSEGG / RIMAC
+            </span>
+
+            <br>
+
+            F1
+            <br>
+            <span class="online">
+                FERRARI / McLAREN / RED BULL
+            </span>
+
+            <br>
+
+            SUPERCAR
+            <br>
+            <span class="online">
+                FERRARI / LAMBORGHINI
+            </span>
+
+            <br>
+
+            MUSCLE
+            <br>
+            <span class="online">
+                MUSTANG / CAMARO / CHARGER
+            </span>
+
+            <br>
+
+            SUV
+            <br>
+            <span class="online">
+                DEFENDER /LAND CRUISER / G-WAGON
+            </span>
 
         </div>
 
     </div>
 
 
-    <!-- RIGHT PANEL -->
+    <!-- =========================
+         RIGHT PANEL
+    ========================= -->
 
     <div class="panel right1">
 
@@ -871,57 +1111,98 @@ body.listening .core {
         <div class="panel-content">
 
             TIME:
-            <span id="panelTime">--</span>
+            <span id="panelTime">
+                --
+            </span>
 
             <br>
 
             DATE:
-            <span id="panelDate">--</span>
+            <span id="panelDate">
+                --
+            </span>
 
             <br>
 
             BROWSER:
-            <span id="browser">--</span>
+            <span id="browser">
+                --
+            </span>
 
             <br>
 
             ONLINE:
-            <span id="online">--</span>
+            <span id="online">
+                --
+            </span>
 
         </div>
 
     </div>
 
 
-    <!-- RIGHT LOWER -->
+    <!-- =========================
+         RIGHT LOWER
+    ========================= -->
 
     <div class="panel right2">
 
         <div class="panel-title">
-            SECURITY
+            CAR CLASSIFICATION
         </div>
 
         <div class="panel-content">
 
-            FIREWALL:
-            <span class="online">ACTIVE</span>
+            HYPERCAR .... PERFORMANCE
 
             <br>
 
-            THREAT LEVEL:
-            <span class="online">LOW</span>
+            F1 .......... RACING
 
             <br>
 
-            AUTHORIZATION:
-            <span class="online">VERIFIED</span>
+            SUPERCAR .... PERFORMANCE
+
+            <br>
+
+            SPORTS ...... PERFORMANCE
+
+            <br>
+
+            MUSCLE ...... AMERICAN
+
+            <br>
+
+            SUV ......... UTILITY
+
+            <br>
+
+            HATCHBACK ... COMPACT
+
+            <br>
+
+            SEDAN ....... PASSENGER
+
+            <br>
+
+            GT .......... TOURING
+
+            <br>
+
+            RALLY ....... MOTORSPORT
+
+            <br>
+
+            EV .......... ELECTRIC
 
         </div>
 
     </div>
 
 
-    <!-- REACTOR -->
+    <!-- =========================
+         REACTOR
+    ========================= -->
 
     <div class="center">
 
@@ -947,18 +1228,24 @@ body.listening .core {
     </div>
 
 
-    <!-- VOICE -->
+    <!-- =========================
+         VOICE
+    ========================= -->
 
     <div class="voice">
 
         <div class="voiceText" id="voiceText">
+
             Initializing voice interface...
+
         </div>
 
         <button
             class="mic"
             onclick="startListening()">
+
             🎙️
+
         </button>
 
     </div>
@@ -987,14 +1274,13 @@ body.listening .core {
 let selectedVoice = null;
 
 
-/* LOAD VOICES */
-
 function loadVoices() {
 
     const voices =
         speechSynthesis.getVoices();
 
-    if (!voices.length) return;
+    if (!voices.length)
+        return;
 
     selectedVoice =
         voices.find(v =>
@@ -1009,6 +1295,7 @@ function loadVoices() {
         ||
         voices[0];
 }
+
 
 speechSynthesis.onvoiceschanged =
     loadVoices;
@@ -1029,12 +1316,9 @@ function speak(text) {
         "JARVIS: " + text;
 
 
-    if (!("speechSynthesis" in window)) {
+    if (!("speechSynthesis" in window))
         return;
-    }
 
-
-    /* Stop previous voice */
 
     speechSynthesis.cancel();
 
@@ -1043,46 +1327,57 @@ function speak(text) {
         new SpeechSynthesisUtterance(text);
 
 
-    utterance.lang = "en-US";
+    utterance.lang =
+        "en-US";
 
-    /* JARVIS STYLE */
+    utterance.rate =
+        0.82;
 
-    utterance.rate = 0.82;
-    utterance.pitch = 0.68;
-    utterance.volume = 1;
+    utterance.pitch =
+        0.68;
 
-
-    if (selectedVoice) {
-        utterance.voice = selectedVoice;
-    }
-
-
-    /* START SPEAKING EFFECT */
-
-    utterance.onstart = function() {
-
-        document.body.classList.add("speaking");
-
-        voiceText.textContent =
-            "JARVIS: " + text;
-    };
+    utterance.volume =
+        1;
 
 
-    /* STOP SPEAKING EFFECT */
-
-    utterance.onend = function() {
-
-        document.body.classList.remove("speaking");
-    };
+    if (selectedVoice)
+        utterance.voice =
+            selectedVoice;
 
 
-    utterance.onerror = function() {
+    utterance.onstart =
+        function() {
 
-        document.body.classList.remove("speaking");
-    };
+            document.body
+                .classList
+                .add("speaking");
+
+            voiceText.textContent =
+                "JARVIS: " + text;
+        };
 
 
-    speechSynthesis.speak(utterance);
+    utterance.onend =
+        function() {
+
+            document.body
+                .classList
+                .remove("speaking");
+        };
+
+
+    utterance.onerror =
+        function() {
+
+            document.body
+                .classList
+                .remove("speaking");
+        };
+
+
+    speechSynthesis.speak(
+        utterance
+    );
 }
 
 
@@ -1090,25 +1385,30 @@ function speak(text) {
    BOOT
 ========================================== */
 
-setTimeout(function() {
+setTimeout(
+    function() {
 
-    document
-        .getElementById("boot")
-        .classList.add("hide");
+        document
+            .getElementById("boot")
+            .classList
+            .add("hide");
 
-    document
-        .getElementById("hud")
-        .classList.add("show");
+        document
+            .getElementById("hud")
+            .classList
+            .add("show");
 
 
-    speak(
-        "Good evening. " +
-        "I am Jarvis. " +
-        "All systems are online. " +
-        "How may I assist you?"
-    );
+        speak(
+            "Good evening. " +
+            "I am Jarvis. " +
+            "All systems are online. " +
+            "How may I assist you?"
+        );
 
-}, 3500);
+    },
+    3500
+);
 
 
 /* ==========================================
@@ -1117,7 +1417,8 @@ setTimeout(function() {
 
 function updateClock() {
 
-    const now = new Date();
+    const now =
+        new Date();
 
     const time =
         now.toLocaleTimeString();
@@ -1134,17 +1435,27 @@ function updateClock() {
         );
 
 
-    document.getElementById("clock")
-        .textContent = time;
+    document
+        .getElementById("clock")
+        .textContent =
+        time;
 
-    document.getElementById("panelTime")
-        .textContent = time;
+    document
+        .getElementById("panelTime")
+        .textContent =
+        time;
 
-    document.getElementById("panelDate")
-        .textContent = date;
+    document
+        .getElementById("panelDate")
+        .textContent =
+        date;
 }
 
-setInterval(updateClock, 1000);
+
+setInterval(
+    updateClock,
+    1000
+);
 
 updateClock();
 
@@ -1158,16 +1469,26 @@ function updateNetwork() {
     const online =
         navigator.onLine;
 
-    document.getElementById("online")
-        .textContent =
-            online ? "YES" : "NO";
 
-    document.getElementById("network")
+    document
+        .getElementById("online")
         .textContent =
-            online ? "CONNECTED" : "OFFLINE";
+        online
+            ? "YES"
+            : "NO";
+
+
+    document
+        .getElementById("network")
+        .textContent =
+        online
+            ? "CONNECTED"
+            : "OFFLINE";
 }
 
+
 updateNetwork();
+
 
 window.addEventListener(
     "online",
@@ -1184,12 +1505,13 @@ window.addEventListener(
    BROWSER
 ========================================== */
 
-document.getElementById("browser")
+document
+    .getElementById("browser")
     .textContent =
-        navigator.userAgent
-            .includes("Chrome")
-            ? "CHROME"
-            : "BROWSER";
+    navigator.userAgent
+        .includes("Chrome")
+        ? "CHROME"
+        : "BROWSER";
 
 
 /* ==========================================
@@ -1200,6 +1522,7 @@ const SpeechRecognition =
     window.SpeechRecognition ||
     window.webkitSpeechRecognition;
 
+
 let recognition = null;
 
 
@@ -1208,55 +1531,65 @@ if (SpeechRecognition) {
     recognition =
         new SpeechRecognition();
 
-    recognition.lang = "en-US";
+    recognition.lang =
+        "en-US";
 
-    recognition.continuous = false;
+    recognition.continuous =
+        false;
 
-    recognition.interimResults = false;
-
-
-    recognition.onstart = function() {
-
-        document.body
-            .classList.add("listening");
-
-        document.getElementById(
-            "voiceText"
-        ).textContent =
-            "Listening...";
-    };
+    recognition.interimResults =
+        false;
 
 
-    recognition.onend = function() {
+    recognition.onstart =
+        function() {
 
-        document.body
-            .classList.remove("listening");
-    };
+            document.body
+                .classList
+                .add("listening");
+
+            document
+                .getElementById("voiceText")
+                .textContent =
+                "Listening...";
+        };
 
 
-    recognition.onerror = function() {
+    recognition.onend =
+        function() {
 
-        document.body
-            .classList.remove("listening");
+            document.body
+                .classList
+                .remove("listening");
+        };
 
-        speak(
-            "I was unable to hear that command."
-        );
-    };
+
+    recognition.onerror =
+        function() {
+
+            document.body
+                .classList
+                .remove("listening");
+
+            speak(
+                "I was unable to hear that command."
+            );
+        };
 
 
     recognition.onresult =
         function(event) {
 
             const command =
-                event.results[0][0]
+                event
+                    .results[0][0]
                     .transcript
                     .trim();
 
 
-            document.getElementById(
-                "voiceText"
-            ).textContent =
+            document
+                .getElementById("voiceText")
+                .textContent =
                 "YOU: " + command;
 
 
@@ -1284,10 +1617,15 @@ function startListening() {
 
 
     try {
+
         recognition.start();
+
     }
+
     catch(error) {
+
         console.log(error);
+
     }
 }
 
@@ -1296,7 +1634,8 @@ function startListening() {
    TEXT COMMAND
 ========================================== */
 
-document.getElementById("command")
+document
+    .getElementById("command")
     .addEventListener(
         "keydown",
         function(event) {
@@ -1308,13 +1647,17 @@ document.getElementById("command")
 
                 this.value = "";
 
+
                 if (command) {
 
                     processCommand(
                         command.toLowerCase()
                     );
+
                 }
+
             }
+
         }
     );
 
@@ -1325,6 +1668,10 @@ document.getElementById("command")
 
 function processCommand(command) {
 
+
+    /* =========================
+       BASIC
+    ========================= */
 
     if (
         command.includes("hello") ||
@@ -1344,7 +1691,8 @@ function processCommand(command) {
 
         speak(
             "The current time is " +
-            new Date().toLocaleTimeString()
+            new Date()
+                .toLocaleTimeString()
         );
 
     }
@@ -1357,25 +1705,32 @@ function processCommand(command) {
 
         speak(
             "Today is " +
-            new Date().toLocaleDateString(
-                undefined,
-                {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric"
-                }
-            )
+            new Date()
+                .toLocaleDateString(
+                    undefined,
+                    {
+                        weekday: "long",
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    }
+                )
         );
 
     }
 
 
+    /* =========================
+       WEBSITES
+    ========================= */
+
     else if (
         command.includes("open google")
     ) {
 
-        speak("Opening Google.");
+        speak(
+            "Opening Google."
+        );
 
         window.open(
             "https://www.google.com",
@@ -1389,7 +1744,9 @@ function processCommand(command) {
         command.includes("open youtube")
     ) {
 
-        speak("Opening YouTube.");
+        speak(
+            "Opening YouTube."
+        );
 
         window.open(
             "https://www.youtube.com",
@@ -1403,7 +1760,9 @@ function processCommand(command) {
         command.includes("open gmail")
     ) {
 
-        speak("Opening Gmail.");
+        speak(
+            "Opening Gmail."
+        );
 
         window.open(
             "https://mail.google.com",
@@ -1417,7 +1776,9 @@ function processCommand(command) {
         command.includes("open maps")
     ) {
 
-        speak("Opening Google Maps.");
+        speak(
+            "Opening Google Maps."
+        );
 
         window.open(
             "https://maps.google.com",
@@ -1426,6 +1787,26 @@ function processCommand(command) {
 
     }
 
+
+    else if (
+        command.includes("open insta")
+    ) {
+
+        speak(
+            "Opening Instagram."
+        );
+
+        window.open(
+            "https://instagram.com",
+            "_blank"
+        );
+
+    }
+
+
+    /* =========================
+       WEATHER
+    ========================= */
 
     else if (
         command.includes("weather")
@@ -1443,6 +1824,10 @@ function processCommand(command) {
     }
 
 
+    /* =========================
+       SEARCH
+    ========================= */
+
     else if (
         command.startsWith("search ")
     ) {
@@ -1450,9 +1835,12 @@ function processCommand(command) {
         const query =
             command.substring(7);
 
+
         speak(
-            "Searching for " + query
+            "Searching for " +
+            query
         );
+
 
         window.open(
             "https://www.google.com/search?q=" +
@@ -1463,6 +1851,10 @@ function processCommand(command) {
     }
 
 
+    /* =========================
+       YOUTUBE
+    ========================= */
+
     else if (
         command.startsWith("play ")
     ) {
@@ -1470,10 +1862,12 @@ function processCommand(command) {
         const query =
             command.substring(5);
 
+
         speak(
             "Searching YouTube for " +
             query
         );
+
 
         window.open(
             "https://www.youtube.com/results?search_query=" +
@@ -1484,12 +1878,18 @@ function processCommand(command) {
     }
 
 
+    /* =========================
+       FULLSCREEN
+    ========================= */
+
     else if (
         command.includes("fullscreen")
     ) {
 
-        document.documentElement
+        document
+            .documentElement
             .requestFullscreen();
+
 
         speak(
             "Entering fullscreen mode."
@@ -1497,6 +1897,10 @@ function processCommand(command) {
 
     }
 
+
+    /* =========================
+       STOP TALKING
+    ========================= */
 
     else if (
         command.includes("stop talking") ||
@@ -1506,15 +1910,21 @@ function processCommand(command) {
         speechSynthesis.cancel();
 
         document.body
-            .classList.remove("speaking");
+            .classList
+            .remove("speaking");
 
-        document.getElementById(
-            "voiceText"
-        ).textContent =
+
+        document
+            .getElementById("voiceText")
+            .textContent =
             "Voice output stopped.";
 
     }
 
+
+    /* =========================
+       STATUS
+    ========================= */
 
     else if (
         command.includes("status")
@@ -1524,13 +1934,35 @@ function processCommand(command) {
             "All systems are operational. " +
             "AI core is active. " +
             "Network is " +
-            (navigator.onLine
+            (
+                navigator.onLine
                 ? "connected."
-                : "offline.")
+                : "offline."
+            )
         );
 
     }
 
+
+    /* =========================
+       SAMIKSHA
+    ========================= */
+
+    else if (
+        command.includes("who is samiksha")
+    ) {
+
+        speak(
+            "Samiksha Saini, also known as Amanda, " +
+            "She is a very pretty girl."
+        );
+
+    }
+
+
+    /* =========================
+       WHO ARE YOU
+    ========================= */
 
     else if (
         command.includes("who are you")
@@ -1543,6 +1975,10 @@ function processCommand(command) {
     }
 
 
+    /* =========================
+       HELP
+    ========================= */
+
     else if (
         command.includes("what can you do") ||
         command === "help"
@@ -1552,11 +1988,571 @@ function processCommand(command) {
             "I can respond to voice commands, " +
             "tell you the time and date, " +
             "search the web, open websites, " +
-            "and control this interface."
+            "and provide information about cars " +
+            "and automotive technology."
         );
 
     }
 
+
+    /* =====================================================
+       CAR DATABASE
+    ===================================================== */
+
+
+    /* =========================
+       GENERAL CARS
+    ========================= */
+
+    else if (
+        command === "cars" ||
+        command.includes("about cars") ||
+        command.includes("tell me about cars") ||
+        command.includes("what is a car")
+    ) {
+
+        speak(
+            "A car is a motor vehicle designed primarily " +
+            "for transporting people. Modern cars can use " +
+            "internal combustion engines, electric motors, " +
+            "or hybrid powertrains. Common categories include " +
+            "hatchbacks, sedans, SUVs, sports cars, supercars, " +
+            "hypercars, muscle cars, coupes, convertibles, " +
+            "grand tourers, rally cars, and off road vehicles."
+        );
+
+    }
+
+
+    /* =========================
+       CAR CATEGORIES
+    ========================= */
+
+    else if (
+        command.includes("car categories") ||
+        command.includes("types of cars") ||
+        command.includes("car types")
+    ) {
+
+        speak(
+            "My car database includes hypercars, supercars, " +
+            "Formula One cars, sports cars, muscle cars, SUVs, " +
+            "hatchbacks, sedans, coupes, convertibles, " +
+            "grand tourers, rally cars, off roaders, " +
+            "pickup trucks, hybrids, and electric vehicles."
+        );
+
+    }
+
+
+    /* =========================
+       HYPERCARS
+    ========================= */
+
+    else if (
+        command.includes("hypercar") ||
+        command.includes("hypercars")
+    ) {
+
+        speak(
+            "Hypercars are extremely high performance road cars " +
+            "that combine advanced aerodynamics, powerful " +
+            "powertrains, lightweight materials, and advanced technology. " +
+            "Examples include the Bugatti Chiron, Koenigsegg Jesko, " +
+            "Rimac Nevera, McLaren Speedtail, and Mercedes AMG One."
+        );
+
+    }
+
+
+    /* =========================
+       F1
+    ========================= */
+
+    else if (
+        command.includes("formula one") ||
+        command.includes("formula 1") ||
+        command === "f1"
+    ) {
+
+        speak(
+            "Formula One cars are single seat racing machines " +
+            "built specifically for Formula One competition. " +
+            "They use advanced aerodynamics, carbon fiber construction, " +
+            "hybrid power units, and energy recovery technology."
+        );
+
+    }
+
+
+    /* =========================
+       SUPERCARS
+    ========================= */
+
+    else if (
+        command.includes("supercar") ||
+        command.includes("supercars")
+    ) {
+
+        speak(
+            "Supercars are high performance road cars focused " +
+            "on acceleration, handling, speed, and technology. " +
+            "Examples include the Ferrari 296 GTB, Lamborghini Revuelto, " +
+            "McLaren 750S, and Porsche 911 Turbo S."
+        );
+
+    }
+
+
+    /* =========================
+       SPORTS CARS
+    ========================= */
+
+    else if (
+        command.includes("sports car") ||
+        command.includes("sports cars")
+    ) {
+
+        speak(
+            "Sports cars are designed primarily for driving performance " +
+            "and handling. Examples include the Mazda MX-5, Toyota GR Supra, " +
+            "Chevrolet Corvette, and Porsche 718 Cayman."
+        );
+
+    }
+
+
+    /* =========================
+       MUSCLE CARS
+    ========================= */
+
+    else if (
+        command.includes("muscle car") ||
+        command.includes("muscle cars")
+    ) {
+
+        speak(
+            "Muscle cars traditionally refer to powerful American performance cars. " +
+            "Examples include the Ford Mustang, Chevrolet Camaro, " +
+            "Dodge Challenger, and Dodge Charger."
+        );
+
+    }
+
+
+    /* =========================
+       SUV
+    ========================= */
+
+    else if (
+        command === "suv" ||
+        command.includes("about suv") ||
+        command.includes("suvs")
+    ) {
+
+        speak(
+            "SUV stands for Sport Utility Vehicle. SUVs generally provide " +
+            "a higher driving position, spacious interiors, and useful cargo capacity. " +
+            "Examples include the Toyota Land Cruiser, Range Rover, " +
+            "Jeep Wrangler, BMW X5, and Lamborghini Urus."
+        );
+
+    }
+
+
+    /* =========================
+       HATCHBACK
+    ========================= */
+
+    else if (
+        command.includes("hatchback") ||
+        command.includes("hatchbacks")
+    ) {
+
+        speak(
+            "A hatchback is a car with a rear door that opens upward " +
+            "into the cargo area. Hatchbacks are usually practical and compact. " +
+            "Examples include the Volkswagen Golf, Honda Civic Hatchback, " +
+            "Toyota GR Yaris, and Hyundai i20."
+        );
+
+    }
+
+
+    /* =========================
+       SEDAN
+    ========================= */
+
+    else if (
+        command.includes("sedan") ||
+        command.includes("sedans")
+    ) {
+
+        speak(
+            "A sedan generally has four doors and a separate trunk. " +
+            "Examples include the BMW 3 Series, Mercedes Benz C Class, " +
+            "Toyota Camry, Honda Accord, and Audi A4."
+        );
+
+    }
+
+
+    /* =========================
+       COUPE
+    ========================= */
+
+    else if (
+        command.includes("coupe") ||
+        command.includes("coupes")
+    ) {
+
+        speak(
+            "A coupe is generally a sporty two door car with a fixed roof. " +
+            "Examples include the BMW 4 Series Coupe, Toyota GR86, " +
+            "Ford Mustang Coupe, and Mercedes Benz CLE Coupe."
+        );
+
+    }
+
+
+    /* =========================
+       CONVERTIBLE
+    ========================= */
+
+    else if (
+        command.includes("convertible") ||
+        command.includes("convertibles")
+    ) {
+
+        speak(
+            "A convertible has a retractable or removable roof. " +
+            "Examples include the Mazda MX-5 Miata, Porsche 911 Cabriolet, " +
+            "BMW Z4, and Ferrari 296 GTS."
+        );
+
+    }
+
+
+    /* =========================
+       RALLY
+    ========================= */
+
+    else if (
+        command.includes("rally car") ||
+        command.includes("rally cars")
+    ) {
+
+        speak(
+            "Rally cars are competition vehicles designed for surfaces " +
+            "such as gravel, snow, and asphalt. Examples associated with " +
+            "rally include the Subaru Impreza WRX STI, Mitsubishi Lancer Evolution, " +
+            "and Toyota GR Yaris."
+        );
+
+    }
+
+
+    /* =========================
+       GT
+    ========================= */
+
+    else if (
+        command.includes("grand tourer") ||
+        command.includes("gt car") ||
+        command.includes("grand touring")
+    ) {
+
+        speak(
+            "Grand tourers are designed for fast and comfortable long distance travel. " +
+            "Examples include the Bentley Continental GT, Aston Martin DB12, " +
+            "Ferrari Roma, and Mercedes AMG GT."
+        );
+
+    }
+
+
+    /* =========================
+       OFF ROAD
+    ========================= */
+
+    else if (
+        command.includes("off road") ||
+        command.includes("off roader") ||
+        command.includes("offroad")
+    ) {
+
+        speak(
+            "Off road vehicles are designed for difficult terrain. " +
+            "Examples include the Jeep Wrangler, Toyota Land Cruiser, " +
+            "Mercedes G Class, and Ford Bronco."
+        );
+
+    }
+
+
+    /* =========================
+       PICKUP
+    ========================= */
+
+    else if (
+        command.includes("pickup") ||
+        command.includes("pickup truck")
+    ) {
+
+        speak(
+            "Pickup trucks combine a passenger cabin with an open cargo bed. " +
+            "Examples include the Ford F 150, Toyota Hilux, Ford Ranger, " +
+            "and Chevrolet Silverado."
+        );
+
+    }
+
+
+    /* =========================
+       ELECTRIC CARS
+    ========================= */
+
+    else if (
+        command.includes("electric car") ||
+        command.includes("electric cars") ||
+        command === "ev"
+    ) {
+
+        speak(
+            "Electric vehicles use electric motors powered by rechargeable batteries. " +
+            "They can deliver strong torque from low speeds and have no tailpipe emissions. " +
+            "Examples include the Tesla Model S, Porsche Taycan, " +
+            "Hyundai Ioniq 5, and Rimac Nevera."
+        );
+
+    }
+
+
+    /* =========================
+       HYBRID
+    ========================= */
+
+    else if (
+        command.includes("hybrid car") ||
+        command.includes("hybrid cars") ||
+        command.includes("what is a hybrid")
+    ) {
+
+        speak(
+            "Hybrid cars combine an internal combustion engine " +
+            "with one or more electric motors. Examples include " +
+            "the Toyota Prius, Toyota Camry Hybrid, and Honda CR V Hybrid."
+        );
+
+    }
+
+
+    /* =========================
+       ENGINE
+    ========================= */
+
+    else if (
+        command.includes("about engine") ||
+        command.includes("about engines") ||
+        command.includes("car engine") ||
+        command.includes("types of engines")
+    ) {
+
+        speak(
+            "A car engine converts energy into mechanical power. " +
+            "Common internal combustion engine configurations include " +
+            "inline four, inline six, V6, V8, V10, and V12. " +
+            "Electric cars use electric motors instead."
+        );
+
+    }
+
+
+    /* =========================
+       HORSEPOWER
+    ========================= */
+
+    else if (
+        command.includes("horsepower") ||
+        command.includes("what is horsepower")
+    ) {
+
+        speak(
+            "Horsepower is a measurement of power. In cars, " +
+            "it describes how quickly an engine or motor can perform work. " +
+            "Higher horsepower can contribute to stronger acceleration " +
+            "and higher speed depending on the vehicle."
+        );
+
+    }
+
+
+    /* =========================
+       TORQUE
+    ========================= */
+
+    else if (
+        command.includes("torque") ||
+        command.includes("what is torque")
+    ) {
+
+        speak(
+            "Torque is rotational force. In a car, engine torque helps " +
+            "turn the wheels and is important for acceleration, climbing, " +
+            "towing, and moving heavy loads."
+        );
+
+    }
+
+
+    /* =========================
+       TRANSMISSION
+    ========================= */
+
+    else if (
+        command.includes("transmission") ||
+        command.includes("car transmission")
+    ) {
+
+        speak(
+            "A transmission transfers power from the engine or motor " +
+            "to the wheels. Common types include manual, automatic, " +
+            "dual clutch, and continuously variable transmissions."
+        );
+
+    }
+
+
+    /* =========================
+       AWD
+    ========================= */
+
+    else if (
+        command.includes("awd") ||
+        command.includes("all wheel drive")
+    ) {
+
+        speak(
+            "AWD means all wheel drive. The system can deliver power " +
+            "to all four wheels and can improve traction in various conditions."
+        );
+
+    }
+
+
+    /* =========================
+       RWD
+    ========================= */
+
+    else if (
+        command.includes("rwd") ||
+        command.includes("rear wheel drive")
+    ) {
+
+        speak(
+            "RWD means rear wheel drive. The rear wheels receive the driving power. " +
+            "It is common in sports cars, performance cars, and many traditional vehicles."
+        );
+
+    }
+
+
+    /* =========================
+       FWD
+    ========================= */
+
+    else if (
+        command.includes("fwd") ||
+        command.includes("front wheel drive")
+    ) {
+
+        speak(
+            "FWD means front wheel drive. The front wheels provide the driving force. " +
+            "It is common in compact cars, hatchbacks, and everyday passenger vehicles."
+        );
+
+    }
+
+
+    /* =========================
+       JDM
+    ========================= */
+
+    else if (
+        command.includes("jdm") ||
+        command.includes("jdm cars")
+    ) {
+
+        speak(
+            "JDM means Japanese Domestic Market. The term commonly refers " +
+            "to cars and parts originally intended for the Japanese market. " +
+            "Examples associated with Japanese performance culture include " +
+            "the Nissan Skyline GT R, Toyota Supra, Mazda RX 7, " +
+            "Mitsubishi Lancer Evolution, and Subaru Impreza."
+        );
+
+    }
+
+
+    /* =========================
+       GERMAN CARS
+    ========================= */
+
+    else if (
+        command.includes("german cars") ||
+        command.includes("about german cars")
+    ) {
+
+        speak(
+            "Major German manufacturers include BMW, Mercedes Benz, Audi, " +
+            "Porsche, and Volkswagen. They produce everything from luxury " +
+            "sedans and SUVs to high performance sports cars."
+        );
+
+    }
+
+
+    /* =========================
+       ITALIAN CARS
+    ========================= */
+
+    else if (
+        command.includes("italian cars") ||
+        command.includes("about italian cars")
+    ) {
+
+        speak(
+            "Italy is famous for performance and luxury manufacturers " +
+            "including Ferrari, Lamborghini, Maserati, Pagani, and Alfa Romeo. " +
+            "Italian performance cars are particularly known for design, " +
+            "motorsport, and engineering."
+        );
+
+    }
+
+
+    /* =========================
+       AMERICAN CARS
+    ========================= */
+
+    else if (
+        command.includes("american cars") ||
+        command.includes("about american cars")
+    ) {
+
+        speak(
+            "Major American manufacturers include Ford, Chevrolet, Dodge, " +
+            "Cadillac, and Tesla. American automotive history includes " +
+            "muscle cars, pickup trucks, sports cars, luxury vehicles, " +
+            "and electric vehicles."
+        );
+
+    }
+
+
+    /* =========================
+       DEFAULT
+    ========================= */
 
     else {
 
@@ -1565,7 +2561,9 @@ function processCommand(command) {
             command +
             ". I do not have that capability yet."
         );
+
     }
+
 }
 
 </script>
