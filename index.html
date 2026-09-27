@@ -1675,7 +1675,8 @@ function processCommand(command) {
 
     if (
         command.includes("hello") ||
-        command.includes("hi jarvis")
+        command.includes("hi jarvis") ||
+        command.includes("hi")
     ) {
 
         speak(
@@ -1787,6 +1788,9 @@ function processCommand(command) {
 
     }
 
+    /*==================
+        Instagram
+    ===================*/
 
     else if (
         command.includes("open insta")
@@ -1802,8 +1806,22 @@ function processCommand(command) {
         );
 
     }
+    /*======================
+        Snapchat
+    ======================*/
 
+    else if (
+        command.includes("open snapchat")
+    ) {
+        speak(
+            "Opening Snapchat."
+        );
 
+        window.open(
+            "https://snapchat.com",
+            "_blank"
+        )
+    }
     /* =========================
        WEATHER
     ========================= */
@@ -1954,7 +1972,8 @@ function processCommand(command) {
 
         speak(
             "Samiksha Saini, also known as Amanda, " +
-            "She is a very pretty girl."
+            "She is a very pretty girl,"+
+            "She has blocked me."
         );
 
     }
@@ -1964,7 +1983,7 @@ function processCommand(command) {
         command.includes("fav suv")
     ) {
         speak(
-            "Defender"
+            "Defender, because it is also favourite of Amanda."
         );
     }
     /* =========================
@@ -1976,7 +1995,9 @@ function processCommand(command) {
     ) {
 
         speak(
-            "I am Jarvis, your personal artificial intelligence assistant."
+            "I am Jarvis, your personal artificial intelligence assistant" +
+            " I am from Uttar Pradesh," +
+            " Ram Ram Ji."
         );
 
     }
