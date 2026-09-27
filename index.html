@@ -1959,7 +1959,14 @@ function processCommand(command) {
 
     }
 
-
+    else if (
+        command.includes("what is your favourite suv") ||
+        command.includes("fav suv")
+    ) {
+        speak(
+            "Defender"
+        );
+    }
     /* =========================
        WHO ARE YOU
     ========================= */
